@@ -1,0 +1,27 @@
+[
+  {
+    "name": "X Burger",
+    "price": "5,00",
+    "type": "sandwich"
+  },
+  {
+    "name": "X Egg",
+    "price": "4,50",
+    "type": "sandwich"
+  },
+  {
+    "name": "X Bacon",
+    "price": "7,00",
+    "type": "sandwich"
+  },
+  {
+    "name": "Fries",
+    "price": "2,00",
+    "type": "extra"
+  },
+  {
+    "name": "Soft drink",
+    "price": "2,50",
+    "type": "extra"
+  }
+]
