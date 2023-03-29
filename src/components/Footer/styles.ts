@@ -37,3 +37,18 @@ export const Container = styled.div`
     width: 100%;
   }
 `;
+
+export const NotificationContainer = styled.span`
+  position: absolute;
+  background: red;
+  right: 20px;
+  top: 10px;
+  z-index: 2;
+  border-radius: 50%;
+  width: 1.3rem;
+  height: 1.3rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
