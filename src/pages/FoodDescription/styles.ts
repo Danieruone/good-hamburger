@@ -17,7 +17,11 @@ export const DetailContainer = styled.div`
   border-radius: 15px 15px 0 0;
   top: -1rem;
   background: white;
-  padding-top: 6rem;
+  padding: 6rem 1rem 1rem 1rem;
+
+  & p {
+    text-align: justify;
+  }
 `;
 
 export const FoodImageContainer = styled.div`

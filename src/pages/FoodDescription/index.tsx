@@ -27,6 +27,7 @@ export const FoodDescription = () => {
           <img src={currentFood?.image} />
         </FoodImageContainer>
         <h1>{currentFood?.name}</h1>
+        <p>{currentFood?.detail}</p>
       </DetailContainer>
     </div>
   );
