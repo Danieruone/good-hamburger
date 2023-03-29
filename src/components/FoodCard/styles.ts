@@ -5,6 +5,7 @@ export const Container = styled.div`
   padding: 1rem;
   box-shadow: #d1d0d0 0px 0px 5px 0px;
   margin-bottom: 1rem;
+  position: relative;
 `;
 
 export const ImageContainer = styled.div`
@@ -24,6 +25,19 @@ export const TextContainer = styled.div`
     font-size: 0.9rem;
   }
   & h3 {
-    margin: .5rem 0;
+    margin: 0.5rem 0;
   }
+`;
+
+export const AddFoodButton = styled.button`
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  background: #f0722b;
+  color: white;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  font-size: 2rem;
 `;
