@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 interface DefaultTheme {
   body: string;
@@ -25,6 +25,8 @@ export const GlobalStyles = createGlobalStyle<{ theme: DefaultTheme }>`
     min-width: 320px;
     min-height: 100vh;
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 `;
 
@@ -37,3 +39,7 @@ export const darkTheme = {
   body: '#23262d',
   text: '#f1f1f1',
 };
+
+export const GlobalContainer = styled.div`
+  max-width: 900px;
+`;

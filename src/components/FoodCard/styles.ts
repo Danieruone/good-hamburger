@@ -40,4 +40,5 @@ export const AddFoodButton = styled.button`
   height: 3rem;
   border: none;
   font-size: 2rem;
+  cursor: pointer;
 `;

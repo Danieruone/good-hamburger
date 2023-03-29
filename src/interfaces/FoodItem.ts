@@ -3,4 +3,5 @@ export interface FoodItem {
   price: string;
   type: string;
   image: string;
+  uuid: string;
 }

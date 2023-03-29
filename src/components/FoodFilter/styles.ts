@@ -14,6 +14,7 @@ export const ItemContainer = styled.div<ItemContainerProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 
   & div {
     border-radius: 50%;
