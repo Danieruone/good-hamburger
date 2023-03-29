@@ -5,7 +5,8 @@ import { menuArray } from 'menu';
 import { toast } from 'react-toastify';
 
 // redux
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import type { RootState } from 'redux/store';
 import { addToCart } from 'redux/reducers/cartSlice';
 
 // types
@@ -32,6 +33,8 @@ export const FoodDescription = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { uuid } = useParams();
+  const cart = useSelector((state: RootState) => state.cart.currentItems);
+
   // state
   const [currentFood, setCurrentFood] = useState<FoodItem>();
   const [totalFee, setTotalFee] = useState<number>(0.0);
@@ -52,20 +55,39 @@ export const FoodDescription = () => {
   // add order to cart
   const handleAddToCart = () => {
     if (currentFood) {
-      dispatch(
-        addToCart({ ...currentFood, quantity: foodQuantity.toString() })
-      );
-      toast.success('Order successfully added', {
-        position: 'top-center',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light',
-      });
-      navigate('/');
+      if (
+        foodQuantity > 1 ||
+        cart.find((object) => object.uuid === currentFood.uuid)
+      ) {
+        toast.error(
+          'you cannot add an item more than once or is already in the cart',
+          {
+            position: 'top-center',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+          }
+        );
+      } else {
+        dispatch(
+          addToCart({ ...currentFood, quantity: foodQuantity.toString() })
+        );
+        toast.success('Order successfully added', {
+          position: 'top-center',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
+        navigate('/');
+      }
     }
   };
 
