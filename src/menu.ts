@@ -7,7 +7,7 @@ import drink from './assets/photos/drink.jpg';
 export const menuArray = [
   {
     name: 'X Burger',
-    price: '5,00',
+    price: '5.00',
     type: 'sandwich',
     image: xBurger,
     uuid: '85a3ca99-f863-41fb-9c9f-baf51f200787',
@@ -16,16 +16,16 @@ export const menuArray = [
   },
   {
     name: 'X Egg',
-    price: '4,50',
+    price: '4.50',
     type: 'sandwich',
     image: xEgg,
     uuid: '45065747-1de2-4c80-814b-332f11c9a48c',
-    desription:
+    detail:
       "If you're looking for a little extra protein in your sandwich, the X Egg is the way to go. It's a variation of the classic X Burger, but with the addition of a fried egg on top. The egg adds an extra layer of flavor and texture, with its runny yolk complementing the beef patty and other toppings. Whether you're a breakfast lover or just looking for a satisfying meal, the X Egg is a great option.",
   },
   {
     name: 'X Bacon',
-    price: '7,00',
+    price: '7.00',
     type: 'sandwich',
     image: xBacon,
     uuid: '15efdeb5-ef4c-467c-aca6-88a4bb1f9e86',
@@ -34,7 +34,7 @@ export const menuArray = [
   },
   {
     name: 'Fries',
-    price: '2,00',
+    price: '2.00',
     type: 'extra',
     image: fries,
     uuid: 'd04146ab-a3de-482d-9c80-165952b61ad1',
@@ -43,7 +43,7 @@ export const menuArray = [
   },
   {
     name: 'Soft drink',
-    price: '2,50',
+    price: '2.50',
     type: 'extra',
     image: drink,
     uuid: '5e928311-6e7b-41f4-a343-4792ecbab31f',
