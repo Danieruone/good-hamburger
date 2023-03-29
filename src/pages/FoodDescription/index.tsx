@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { menuArray } from 'menu';
 import { toast } from 'react-toastify';
+import { Puff } from 'react-loader-spinner';
 
 // redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,6 +15,7 @@ import { FoodItem } from 'interfaces/FoodItem';
 
 // components
 import { QuantityPicker } from 'components/QuantityPicker';
+import { BackButton } from 'components/BackButton';
 
 // styles
 import {
@@ -24,7 +26,8 @@ import {
   AddToOrderButton,
   FoodQuantityContainer,
   AddToOrderButtonContainer,
-  NotFoundContainer,
+  LoaderContainer,
+  BackButtonContainer,
 } from './styles';
 
 import tableBackground from 'assets/photos/table.jpg';
@@ -41,6 +44,7 @@ export const FoodDescription = () => {
   const [foodQuantity, setFoodQuantity] = useState<number>(1);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setCurrentFood(menuArray.find((object) => object.uuid === uuid));
   }, []);
 
@@ -95,6 +99,9 @@ export const FoodDescription = () => {
     <Container>
       {currentFood ? (
         <>
+          <BackButtonContainer>
+            <BackButton />
+          </BackButtonContainer>
           <TableBackground>
             <img src={tableBackground} />
           </TableBackground>
@@ -120,9 +127,18 @@ export const FoodDescription = () => {
           </AddToOrderButtonContainer>
         </>
       ) : (
-        <NotFoundContainer>
-          <h1>Item not found</h1>
-        </NotFoundContainer>
+        <LoaderContainer>
+          <Puff
+            height='80'
+            width='80'
+            radius={1}
+            color='#F0722B'
+            ariaLabel='puff-loading'
+            wrapperStyle={{}}
+            wrapperClass=''
+            visible={true}
+          />
+        </LoaderContainer>
       )}
     </Container>
   );

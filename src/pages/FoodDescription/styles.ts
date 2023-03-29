@@ -6,6 +6,12 @@ export const Container = styled.div`
   height: 100vh;
 `;
 
+export const BackButtonContainer = styled.div`
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+`;
+
 export const TableBackground = styled.div`
   height: 30vh;
   & img {
@@ -81,11 +87,12 @@ export const AddToOrderButton = styled.button`
   cursor: pointer;
 `;
 
-export const NotFoundContainer = styled.div`
+export const LoaderContainer = styled.div`
   position: absolute;
   left: 0;
   right: 0;
   margin: auto;
-  text-align: center;
+  display: flex;
+  justify-content: center;
   top: 30%;
 `;
