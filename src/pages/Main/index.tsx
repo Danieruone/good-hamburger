@@ -6,6 +6,7 @@ import { Container, Header } from './styles';
 import { ThemeToggler } from 'components/ThemeToggler';
 import { FoodCard } from 'components/FoodCard';
 import { FoodFilter } from 'components/FoodFilter';
+import { Footer } from 'components/Footer';
 
 // menu
 import { menuArray } from 'menu';
@@ -37,6 +38,8 @@ export const Main = () => {
       {filteredFood.map((foodItem, idx) => (
         <FoodCard {...foodItem} key={idx} />
       ))}
+
+      <Footer />
     </Container>
   );
 };
