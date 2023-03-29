@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { menuArray } from 'menu';
+import { toast } from 'react-toastify';
 
 // redux
 import { useDispatch } from 'react-redux';
@@ -54,6 +55,16 @@ export const FoodDescription = () => {
       dispatch(
         addToCart({ ...currentFood, quantity: foodQuantity.toString() })
       );
+      toast.success('Order successfully added', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
       navigate('/');
     }
   };
