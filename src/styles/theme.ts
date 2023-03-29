@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 interface DefaultTheme {
   body: string;
@@ -17,14 +17,13 @@ export const GlobalStyles = createGlobalStyle<{ theme: DefaultTheme }>`
     -webkit-text-size-adjust: 100%;
   }
 
-  body {
+  html,body {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
     transition: background 0.2s ease-in, color 0.2s ease-in;
     margin: 0;
-    min-width: 320px;
     min-height: 100vh;
-    width: 100%;
+    min-width: 100%;
   }
 `;
 
@@ -34,6 +33,11 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
-  body: '#121620',
+  body: '#23262d',
   text: '#f1f1f1',
 };
+
+export const GlobalContainer = styled.div`
+  max-width: 900px;
+  margin: auto;
+`;
