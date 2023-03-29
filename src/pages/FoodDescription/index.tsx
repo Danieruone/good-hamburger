@@ -64,32 +64,13 @@ export const FoodDescription = () => {
         cart.find((object) => object.uuid === currentFood.uuid)
       ) {
         toast.error(
-          'you cannot add an item more than once or is already in the cart',
-          {
-            position: 'top-center',
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: 'light',
-          }
+          'you cannot add an item more than once or is already in the cart'
         );
       } else {
         dispatch(
           addToCart({ ...currentFood, quantity: foodQuantity.toString() })
         );
-        toast.success('Order successfully added', {
-          position: 'top-center',
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: 'light',
-        });
+        toast.success('Order successfully added');
         navigate('/');
       }
     }

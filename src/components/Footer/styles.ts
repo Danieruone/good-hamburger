@@ -11,7 +11,6 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   box-shadow: #bfbfbf 0px 1px 9px 0px;
-
   & div{
     position relative;
     background: white;
@@ -20,7 +19,6 @@ export const Container = styled.div`
     bottom: 2rem;
     border-radius: 50%;
   }
-
   & button{
     position absolute;
     width: 4rem;
@@ -31,8 +29,8 @@ export const Container = styled.div`
     border: none;
     background: #f0722b;
     padding: 1rem;
+    cursor: pointer;
   }
-
   & img{
     width: 100%;
   }
