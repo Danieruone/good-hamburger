@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { menuArray } from 'menu';
+
+// redux
+import { useDispatch } from 'react-redux';
+import { addToCart } from 'redux/reducers/cartSlice';
 
 // types
 import { FoodItem } from 'interfaces/FoodItem';
@@ -17,11 +22,14 @@ import {
   AddToOrderButton,
   FoodQuantityContainer,
   AddToOrderButtonContainer,
+  NotFoundContainer,
 } from './styles';
 
 import tableBackground from 'assets/photos/table.jpg';
 
 export const FoodDescription = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { uuid } = useParams();
   // state
   const [currentFood, setCurrentFood] = useState<FoodItem>();
@@ -40,31 +48,49 @@ export const FoodDescription = () => {
     setTotalFee(foodQuantity * Number(currentFood?.price));
   }, [foodQuantity]);
 
+  // add order to cart
+  const handleAddToCart = () => {
+    if (currentFood) {
+      dispatch(
+        addToCart({ ...currentFood, quantity: foodQuantity.toString() })
+      );
+      navigate('/');
+    }
+  };
+
   return (
     <Container>
-      <TableBackground>
-        <img src={tableBackground} />
-      </TableBackground>
-      <DetailContainer>
-        <FoodImageContainer>
-          <img src={currentFood?.image} />
-        </FoodImageContainer>
-        <h1>{currentFood?.name}</h1>
-        <FoodQuantityContainer>
-          <h2>${currentFood?.price}</h2>
-          <QuantityPicker
-            foodQuantity={foodQuantity}
-            setFoodQuantity={setFoodQuantity}
-          />
-        </FoodQuantityContainer>
-        <p>{currentFood?.detail}</p>
-      </DetailContainer>
+      {currentFood ? (
+        <>
+          <TableBackground>
+            <img src={tableBackground} />
+          </TableBackground>
+          <DetailContainer>
+            <FoodImageContainer>
+              <img src={currentFood?.image} />
+            </FoodImageContainer>
+            <h1>{currentFood?.name}</h1>
+            <FoodQuantityContainer>
+              <h2>${currentFood?.price}</h2>
+              <QuantityPicker
+                foodQuantity={foodQuantity}
+                setFoodQuantity={setFoodQuantity}
+              />
+            </FoodQuantityContainer>
+            <p>{currentFood?.detail}</p>
+          </DetailContainer>
 
-      <AddToOrderButtonContainer>
-        <AddToOrderButton>
-          Add to order ${parseFloat(totalFee.toString()).toFixed(2)}
-        </AddToOrderButton>
-      </AddToOrderButtonContainer>
+          <AddToOrderButtonContainer>
+            <AddToOrderButton onClick={() => handleAddToCart()}>
+              Add to order ${parseFloat(totalFee.toString()).toFixed(2)}
+            </AddToOrderButton>
+          </AddToOrderButtonContainer>
+        </>
+      ) : (
+        <NotFoundContainer>
+          <h1>Item not found</h1>
+        </NotFoundContainer>
+      )}
     </Container>
   );
 };

@@ -80,3 +80,12 @@ export const AddToOrderButton = styled.button`
   font-size: 1rem;
   cursor: pointer;
 `;
+
+export const NotFoundContainer = styled.div`
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  top: 30%;
+`;

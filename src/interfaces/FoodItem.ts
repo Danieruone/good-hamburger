@@ -5,4 +5,5 @@ export interface FoodItem {
   image: string;
   uuid: string;
   detail?: string;
+  quantity?: string;
 }
