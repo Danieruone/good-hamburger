@@ -17,16 +17,13 @@ export const GlobalStyles = createGlobalStyle<{ theme: DefaultTheme }>`
     -webkit-text-size-adjust: 100%;
   }
 
-  body {
+  html,body {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
     transition: background 0.2s ease-in, color 0.2s ease-in;
     margin: 0;
-    min-width: 320px;
     min-height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    min-width: 100%;
   }
 `;
 
@@ -42,4 +39,5 @@ export const darkTheme = {
 
 export const GlobalContainer = styled.div`
   max-width: 900px;
+  margin: auto;
 `;
