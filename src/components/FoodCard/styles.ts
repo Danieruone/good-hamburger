@@ -36,8 +36,8 @@ export const AddFoodButton = styled.button`
   background: #f0722b;
   color: white;
   border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
+  width: 40px;
+  height: 40px;
   border: none;
   font-size: 2rem;
   cursor: pointer;
