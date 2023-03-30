@@ -20,3 +20,24 @@ export const BackButtonContainer = styled.div`
 export const CardsContainer = styled.div`
   margin: 2rem 0;
 `;
+
+export const SendButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 2rem;
+  & input {
+    padding: 1rem;
+    border: none;
+  }
+  & button {
+    margin-top: 1rem;
+    background: black;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+`;
