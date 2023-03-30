@@ -10,6 +10,7 @@ export const Container = styled.button`
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  cursor: pointer;
   & img {
     width: 100%;
   }
