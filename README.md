@@ -6,6 +6,7 @@
 - Vite
 - Styled components
 - Typescript
+- Redux
 
 ## Run the application
 
