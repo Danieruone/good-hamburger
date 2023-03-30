@@ -35,12 +35,15 @@ export const InfoContainer = styled.div`
 `;
 
 export const TrashButton = styled.button`
-  width: 5rem;
-  height: 2.5rem;
+  width: 100px;
+  height: 50px;
   background: none;
   border: none;
+  margin-right: 0.5rem;
+  cursor: pointer;
   & img {
     width: 100%;
     height: 100%;
+    object-fit: contain;
   }
 `;

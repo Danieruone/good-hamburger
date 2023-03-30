@@ -6,6 +6,7 @@ import type { RootState } from 'redux/store';
 // components
 import { BackButton } from 'components/BackButton';
 import { CartCard } from 'components/CartCard';
+import { TotalFeeCard } from 'components/TotalFeeCard';
 
 // styles
 import { Container, BackButtonContainer, CardsContainer } from './styles';
@@ -34,6 +35,8 @@ export const CartPage = () => {
           />
         ))}
       </CardsContainer>
+
+      <TotalFeeCard cart={cart} />
     </Container>
   );
 };

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   background: #f5f7f9;
   min-height: 100vh;
-  padding-top: 1rem;
+  padding: 1rem;
   & h1 {
     font-weight: 300;
     font-size: 1.5rem;
@@ -18,5 +18,5 @@ export const BackButtonContainer = styled.div`
 `;
 
 export const CardsContainer = styled.div`
-  padding: 1rem;
+  margin: 2rem 0;
 `;
