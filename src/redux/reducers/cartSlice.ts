@@ -2,12 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 import { FoodItem } from 'interfaces/FoodItem';
-
-export interface SubmittedOrder {
-  items: FoodItem[];
-  totalFee: string;
-  customerName: string;
-}
+import { SubmittedOrder } from 'interfaces/SubmittedOrder';
 
 export interface cartState {
   currentItems: FoodItem[];

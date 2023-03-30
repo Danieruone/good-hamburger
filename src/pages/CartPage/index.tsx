@@ -15,6 +15,7 @@ import type { RootState } from 'redux/store';
 import { BackButton } from 'components/BackButton';
 import { CartCard } from 'components/CartCard';
 import { TotalFeeCard } from 'components/TotalFeeCard';
+import { SubmittedOrdersModal } from 'components/SubmittedOrdersModal';
 
 // styles
 import {
@@ -27,13 +28,17 @@ import {
 export const CartPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  // redux store
   const cart = useSelector((state: RootState) => state.cart.currentItems);
   const submittedOrders = useSelector(
     (state: RootState) => state.cart.submittedOrders
   );
 
+  // state
   const [totalFee, setTotalFee] = useState<string>('0.0');
   const [customerName, setCustomerName] = useState<string>('');
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const deleteCartItem = (uuid: string) => {
     dispatch(deleteItemFromCart(uuid));
@@ -89,8 +94,16 @@ export const CartPage = () => {
       )}
 
       <SendButtonContainer isSubbmittedOrder={true}>
-        <button>Submitted orders {submittedOrders.length}</button>
+        <button onClick={() => setIsModalOpen(true)}>
+          Submitted orders {submittedOrders.length}
+        </button>
       </SendButtonContainer>
+
+      <SubmittedOrdersModal
+        submittedOrders={submittedOrders}
+        isOpen={isModalOpen}
+        setIsOpen={setIsModalOpen}
+      />
     </Container>
   );
 };
