@@ -64,7 +64,7 @@ export const FoodDescription = () => {
         cart.find((object) => object.uuid === currentFood.uuid)
       ) {
         toast.error(
-          'you cannot add an item more than once or is already in the cart'
+          'You cannot add an item more than once in the cart'
         );
       } else {
         dispatch(
