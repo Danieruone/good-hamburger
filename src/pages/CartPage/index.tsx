@@ -28,6 +28,9 @@ export const CartPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cart = useSelector((state: RootState) => state.cart.currentItems);
+  const submittedOrders = useSelector(
+    (state: RootState) => state.cart.submittedOrders
+  );
 
   const [totalFee, setTotalFee] = useState<string>('0.0');
   const [customerName, setCustomerName] = useState<string>('');
@@ -70,8 +73,8 @@ export const CartPage = () => {
       </CardsContainer>
 
       <TotalFeeCard cart={cart} totalFee={totalFee} setTotalFee={setTotalFee} />
-      {cart.length > 0 && (
-        <SendButtonContainer>
+      {cart.length > 0 ? (
+        <SendButtonContainer isSubbmittedOrder={false}>
           <input
             type='text'
             placeholder='Type your name...'
@@ -79,7 +82,15 @@ export const CartPage = () => {
           />
           <button onClick={() => submitOrder()}>Place to order</button>
         </SendButtonContainer>
+      ) : (
+        <SendButtonContainer isSubbmittedOrder={false}>
+          <span>You don't have items in your cart</span>
+        </SendButtonContainer>
       )}
+
+      <SendButtonContainer isSubbmittedOrder={true}>
+        <button>Submitted orders {submittedOrders.length}</button>
+      </SendButtonContainer>
     </Container>
   );
 };

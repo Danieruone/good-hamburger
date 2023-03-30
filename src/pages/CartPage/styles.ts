@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface ItemContainerProps {
+  isSubbmittedOrder: boolean;
+}
+
 export const Container = styled.div`
   background: #f5f7f9;
   min-height: 100vh;
@@ -21,18 +25,20 @@ export const CardsContainer = styled.div`
   margin: 2rem 0;
 `;
 
-export const SendButtonContainer = styled.div`
+export const SendButtonContainer = styled.div<ItemContainerProps>`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 2rem;
+  text-align: center;
+  max-width: 400px;
+  margin-top: ${(props) => (props.isSubbmittedOrder ? '1rem' : '2rem')};
   & input {
     padding: 1rem;
     border: none;
   }
   & button {
-    margin-top: 1rem;
-    background: black;
+    margin-top: ${(props) => (props.isSubbmittedOrder ? '0' : '1rem')};
+    background: ${(props) => (props.isSubbmittedOrder ? '#30D780' : 'black')};
     color: white;
     border: none;
     padding: 1rem 2rem;
