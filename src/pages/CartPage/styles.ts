@@ -35,6 +35,7 @@ export const SendButtonContainer = styled.div<ItemContainerProps>`
   & input {
     padding: 1rem;
     border: none;
+    font-size: 1rem;
   }
   & button {
     margin-top: ${(props) => (props.isSubbmittedOrder ? '0' : '1rem')};

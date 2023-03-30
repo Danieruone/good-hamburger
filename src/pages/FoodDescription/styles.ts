@@ -29,7 +29,7 @@ export const DetailContainer = styled.div`
   border-radius: 15px 15px 0 0;
   top: -1rem;
   background: #f5f7f9;
-  padding: 6rem 1rem 1rem 1rem;
+  padding: 6rem 1rem 6rem 1rem;
   & p {
     text-align: justify;
     color: #8a8e98;
