@@ -36,9 +36,15 @@ export const AddFoodButton = styled.button`
   background: #f0722b;
   color: white;
   border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
+  width: 40px;
+  height: 40px;
   border: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-border-radius: 50%;
+  -khtml-border-radius: 50%;
+  -moz-border-radius: 50%;
 `;

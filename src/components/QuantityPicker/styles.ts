@@ -13,9 +13,12 @@ export const Container = styled.div`
   & button {
     border-radius: 50%;
     border: none;
-    width: 2rem;
-    height: 2rem;
+    width: 30px;
+    height: 30px;
     font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   & h2 {
     margin: 0;
