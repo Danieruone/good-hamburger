@@ -13,6 +13,7 @@ import { useSelector } from 'react-redux';
 // pages
 import { Main } from './pages/Main';
 import { FoodDescription } from 'pages/FoodDescription';
+import { CartPage } from 'pages/CartPage';
 
 const App = () => {
   // theme
@@ -25,6 +26,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Main />} />
           <Route path='/food-description/:uuid' element={<FoodDescription />} />
+          <Route path='/cart' element={<CartPage />} />
           <Route path='*' element={<h1>404</h1>} />
         </Routes>
       </GlobalContainer>

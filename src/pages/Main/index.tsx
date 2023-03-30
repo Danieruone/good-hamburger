@@ -27,7 +27,7 @@ export const Main = () => {
     <Container>
       <Header>
         <h1>Good hamburger</h1>
-        <ThemeToggler />
+        {/* <ThemeToggler /> */}
       </Header>
 
       <FoodFilter

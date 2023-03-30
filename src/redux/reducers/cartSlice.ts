@@ -18,10 +18,16 @@ export const cartSlice = createSlice({
     addToCart: (state, action: PayloadAction<FoodItem>) => {
       state.currentItems.push(action.payload);
     },
+
+    deleteItemFromCart: (state, action: PayloadAction<string>) => {
+      state.currentItems = state.currentItems.filter(
+        (foodItem) => foodItem.uuid !== action.payload
+      );
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, deleteItemFromCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

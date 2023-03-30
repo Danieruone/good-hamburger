@@ -15,7 +15,6 @@ export const ItemContainer = styled.div<ItemContainerProps>`
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-
   & div {
     border-radius: 50%;
     width: 3rem;
@@ -25,12 +24,10 @@ export const ItemContainer = styled.div<ItemContainerProps>`
     align-items: center;
     background: #f0f0f0;
   }
-
   & img {
     width: 2.5rem;
     height: 2.5rem;
   }
-
   & span {
     color: gray;
     font-size: 0.8rem;
