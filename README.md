@@ -16,3 +16,6 @@ npm i
 ```
 npm run dev
 ```
+
+## App preview
+![App preview](src/assets/photos/gh-preview.png)
