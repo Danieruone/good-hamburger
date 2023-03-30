@@ -7,9 +7,12 @@ import { FoodItem } from 'interfaces/FoodItem';
 import { Container, SubtotalInfo, TotalContainer } from './styles';
 import { useDiscount } from 'hooks/useDiscount';
 
-export const TotalFeeCard = (props: { cart: FoodItem[] }) => {
+export const TotalFeeCard = (props: {
+  cart: FoodItem[];
+  totalFee: string;
+  setTotalFee: (totalFee: string) => void;
+}) => {
   const [subTotal, setSubTotal] = useState<string>('0.0');
-  const [totalFee, setTotalFee] = useState<string>('0.0');
   const [discount] = useDiscount(props.cart);
 
   useEffect(() => {
@@ -24,8 +27,8 @@ export const TotalFeeCard = (props: { cart: FoodItem[] }) => {
   useEffect(() => {
     const percentage = (Number(subTotal) * discount) / 100;
     const total = Number(subTotal) - percentage;
-    setTotalFee(total.toFixed(2));
-  }, [discount]);
+    props.setTotalFee(total.toFixed(2));
+  }, [discount, subTotal]);
 
   return (
     <Container>
@@ -40,7 +43,7 @@ export const TotalFeeCard = (props: { cart: FoodItem[] }) => {
       <TotalContainer>
         <div>
           <h2>Total</h2>
-          <h2>${totalFee}</h2>
+          <h2>${props.totalFee}</h2>
         </div>
       </TotalContainer>
     </Container>
