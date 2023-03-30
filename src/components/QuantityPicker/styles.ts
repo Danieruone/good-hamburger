@@ -16,6 +16,9 @@ export const Container = styled.div`
     width: 2rem;
     height: 2rem;
     font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   & h2 {
     margin: 0;
