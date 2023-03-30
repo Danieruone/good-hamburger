@@ -14,6 +14,16 @@ export const Container = styled.div<ItemContainerProps>`
   left: 0;
 `;
 
+export const EmptyMessage = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  & span {
+    font-size: 0.8rem;
+    color: gray;
+  }
+`;
+
 export const CardContainer = styled.div` 
   background white;
   width:90%;
@@ -46,7 +56,7 @@ export const OrdersContainer = styled.div`
 `;
 
 export const ItemContainer = styled.div`
-  border-bottom: 1px solid #F0F0F0;
+  border-bottom: 1px solid #f0f0f0;
   display: flex;
   flex-direction: column;
   width: 100%;

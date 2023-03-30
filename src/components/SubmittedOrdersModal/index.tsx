@@ -14,6 +14,7 @@ import {
   ItemHeader,
   OrdersContainer,
   Closebutton,
+  EmptyMessage,
 } from './styles';
 
 export const SubmittedOrdersModal: FC<Props> = ({
@@ -30,26 +31,32 @@ export const SubmittedOrdersModal: FC<Props> = ({
         <h1>Submitted orders</h1>
 
         <OrdersContainer>
-          {submittedOrders.map((order, idx) => (
-            <ItemContainer key={idx}>
-              <ItemHeader>
-                <div>
-                  <h1>Customer name:</h1>
-                  <span>{order.customerName}</span>
-                </div>
-                <div>
-                  <h1>Total fee:</h1>
-                  <span>${order.totalFee}</span>
-                </div>
-              </ItemHeader>
+          {submittedOrders.length > 0 ? (
+            submittedOrders.map((order, idx) => (
+              <ItemContainer key={idx}>
+                <ItemHeader>
+                  <div>
+                    <h1>Customer name:</h1>
+                    <span>{order.customerName}</span>
+                  </div>
+                  <div>
+                    <h1>Total fee:</h1>
+                    <span>${order.totalFee}</span>
+                  </div>
+                </ItemHeader>
 
-              <ul>
-                {order.items.map((item, idx) => (
-                  <li key={idx}>{item.name}</li>
-                ))}
-              </ul>
-            </ItemContainer>
-          ))}
+                <ul>
+                  {order.items.map((item, idx) => (
+                    <li key={idx}>{item.name}</li>
+                  ))}
+                </ul>
+              </ItemContainer>
+            ))
+          ) : (
+            <EmptyMessage>
+              <span>You don't have submitted orders yet</span>
+            </EmptyMessage>
+          )}
         </OrdersContainer>
       </CardContainer>
     </Container>
